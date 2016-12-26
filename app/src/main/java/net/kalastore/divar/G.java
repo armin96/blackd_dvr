@@ -22,6 +22,7 @@ public class G extends Application {
     public static Activity currentActivity;
     public static List<Movie> movieList = new ArrayList<>();
     public static HashMap<String,String> categoryList=new HashMap<>();
+
     @Override
     public void onCreate() {
         super.onCreate();
