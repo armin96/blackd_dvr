@@ -1,12 +1,17 @@
 package net.kalastore.divar;
 
+import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
+
+
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -15,14 +20,14 @@ import java.net.URL;
 /**
  * Created by Diamond Android on 12/23/2016.
  */
-public class HttpHandler {
+public class HttpHandler{
 
     private static final String TAG = HttpHandler.class.getSimpleName();
 
     public HttpHandler() {
     }
 
-    public String makeServiceCall(String reqUrl) {
+    public static String makeServiceCall(String reqUrl) {
         String response = null;
         try {
             URL url = new URL(reqUrl);
@@ -43,7 +48,7 @@ public class HttpHandler {
         return response;
     }
 
-    private String convertStreamToString(InputStream is) {
+    private static String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 
@@ -63,4 +68,5 @@ public class HttpHandler {
         }
         return sb.toString();
     }
+
 }
